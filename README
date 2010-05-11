@@ -1,0 +1,24 @@
+This project provides some convenience functions that can be
+used with the stock Go language major Emacs mode (go-mode.el) 
+provided by Google. 
+
+The file provided is go-mode-extra.el. To use it, 
+
+1. First install the stock go-mode 
+   (available in your $GOROOT/misc/emacs directory).
+
+2. Then copy the go-mode-extra.el file to the same directory
+   where the stock go-mode.el and go-mode-load.el files are
+   kept.
+
+3. Add the following lines to your ~/.emacs file:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load "go-mode-extra")
+(add-hook 'go-mode-hook 'go-mode-extra)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+This is my first elisp program. So, although this works
+on my setup, you might find it buggy. If so, please do
+let me know. Also please let me know if you find it at
+all useful, or if you have any suggestions.
+
