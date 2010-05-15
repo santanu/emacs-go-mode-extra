@@ -68,7 +68,7 @@ command is issued: godoc pkg search
 
   (defun gme-strings-unquote (str-list)
     "Unquote all strings in list"
-    (mapcar #'string-unquote str-list))
+    (mapcar #'gme-string-unquote str-list))
 
   (defun gme-list-to-hash (l h)
     "Converts a list with even number of items to a hash table"
@@ -83,7 +83,7 @@ command is issued: godoc pkg search
   (defun gme-list-imports ()
     "Make a list of all go packages imported in current go file in buffer
 using shell command 'goimports'"
-    (strings-unquote
+    (gme-strings-unquote
      (split-string
       (shell-command-to-string
        (concat "goimports " (expand-file-name (buffer-name)))))))
@@ -91,7 +91,7 @@ using shell command 'goimports'"
   (defun gme-hash-imports ()
     "Make a hash table out of the output from shell command 'goimports'
 on the current go file in buffer"
-    (let ((l (strings-unquote 
+    (let ((l (gme-strings-unquote 
 	      (split-string 
 	       (shell-command-to-string 
 		(concat "goimports -h " (expand-file-name (buffer-name)))))))
